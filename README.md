@@ -76,6 +76,82 @@ npm run build
 npm start
 ```
 
+## Crear roles y permiso.
+
+Para poder crear los datos iniciales se debe de Comentar la linea siguiente en el directorio `routes/`
+
+``` router.post("/roles", verifyToken, getPermissons, createRoles);
+```
+luego Descomentar
+
+``` router.post("/roles", createRoles);
+```
+Este paso es para poder dar acceso a las rutas sin restrinsión de acceso luego de debe de dejar todo como estaba inicialmente.
+
+### Debe de enviar la siguiente estructura de datos
+
+1. Creación del Rol User y sus permisos
+```
+{
+  "name": "user",
+  "permissions": [
+      "task_write",
+      "task_read",
+      "tasl_update",
+      "task_delete"
+  ]
+}
+```
+
+2. Creación del Rol Admin y sus permisos
+```
+{
+  "name": "admin",
+  "permissions": [
+      "admin_granted"
+  ]
+}
+```
+## Creación de usuarios
+
+Para poder crear los datos iniciales se debe de Comentar la linea siguiente
+
+```router.post("/users", verifyToken, getPermissons, checkRoles, createUser);
+```
+luego Descomentar
+
+```router.post("/users", createUser);
+```
+Este paso es para poder dar acceso a las rutas sin restrinsión de acceso luego de debe de dejar todo como estaba inicialmente.
+
+
+### Se debe de enviar la siguiente estructura de datos
+
+1. Creación de usuario con rol user
+
+```
+{
+  "name": "name_user",
+  "username": "username",
+  "email": "email_user",
+  "password":"password_user",
+  "roles":[user]
+}
+```
+
+2. Creación de usuario con rol admin
+
+```
+{
+  "name": "name_user",
+  "username": "username",
+  "email": "email_user",
+  "password":"password_user",
+  "roles":[admin]
+}
+```
+En tal caso tambien puede realizarlo directamente en la Base de datos manualmente
+
 ## Uso
 
 La API proporciona endpoint para la administración de usuarios, la autenticación, la administración de roles y las operaciones de publicación de tareas. 

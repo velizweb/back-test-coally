@@ -20,20 +20,30 @@ export default () => {
   // Users Routes
   router.get("/users", verifyToken, getPermissons, findUsers);
   router.get("/users/:id", verifyToken, getPermissons, findUsersById);
+  
+  //Comentar para crear usuario
   router.post("/users", verifyToken, getPermissons, checkRoles, createUser);
+  
+  //Descomentar para crear usuario
+  //router.post("/users", createUser);
+
   router.put("/users/:id", verifyToken, getPermissons, updateUser);
   router.delete("/users/:id", verifyToken, getPermissons, deleteUser);
 
   // Roles Routes
   router.get("/roles", verifyToken, getPermissons, findRoles);
   router.get("/roles/:id", verifyToken, getPermissons, findRolesById);
+
+  //Comentar para crear role
   router.post("/roles", verifyToken, getPermissons, createRoles);
+  //Descomentar para crear rol
   //router.post("/roles", createRoles);
+
   router.put("/roles/:id", verifyToken, getPermissons, updateRoles);
   router.delete("/roles/:id", verifyToken, getPermissons, deleteRoles);
 
   // Task Routes
-  //router.get("/task", findTasks);
+
   router.get("/task", verifyToken, getPermissons, findTasks);
 
   router.get("/task/:id", verifyToken, getPermissons,findTaskById);
