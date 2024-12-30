@@ -116,11 +116,13 @@ Este paso es para poder dar acceso a las rutas sin restrinsión de acceso luego 
 
 Para poder crear los datos iniciales se debe de Comentar la linea siguiente
 
-```router.post("/users", verifyToken, getPermissons, checkRoles, createUser);
+```
+router.post("/users", verifyToken, getPermissons, checkRoles, createUser);
 ```
 luego Descomentar
 
-```router.post("/users", createUser);
+```
+router.post("/users", createUser);
 ```
 Este paso es para poder dar acceso a las rutas sin restrinsión de acceso luego de debe de dejar todo como estaba inicialmente.
 
